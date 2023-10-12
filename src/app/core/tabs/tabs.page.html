@@ -1,0 +1,27 @@
+<ion-tabs>
+  <div class="nav-container">
+    <ion-fab-button size="small" class="fab fab-button">
+      <ion-icon name="add-outline" class="fab-icon"  [routerLink]="['/form']"></ion-icon>
+    </ion-fab-button>
+
+    <div class="nav-icons-container">
+      <ion-tab-bar slot="bottom" class="nav custom-tab-bar ">
+        <ion-tab-button tab="home" class="button-nav" >
+          <ion-icon name="home" size="large"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="categories" class="button-nav" >
+          <ion-icon name="albums" size="large"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="recipes" class="button-nav" >
+          <ion-icon name="receipt" size="large"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="my-recipes" class="button-nav" >
+          <ion-icon name="file-tray" size="large"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </div>
+  </div>
+</ion-tabs>
