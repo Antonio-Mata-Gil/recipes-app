@@ -61,8 +61,8 @@
   border-radius: 8px;
   width: 95%;
   margin: auto;
-  margin-top: 22px;
-  margin-bottom: 22px;
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 .container-button {
@@ -90,9 +90,10 @@
   display: flex;
   flex-wrap: wrap;
   row-gap: 22px;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: flex-start;
   overflow-x: scroll;
-  height: 48%;
+  height: 42.1%;
   border-radius: 0px 0px 22px 22px;
 
   .recipe-container {
@@ -105,8 +106,8 @@
     border-radius: 22px;
 
     .img-recepi {
-      max-width: 161px;
-      min-width: 175px;
+      max-width: 43vw;
+      min-width: 43vw;
       min-height: 200px;
       border-radius: 22px;
     }
@@ -117,7 +118,7 @@
       position: relative;
       bottom: -122px;
       backdrop-filter: blur(10px);
-      min-width: 161px;
+      min-width: 43vw;
       min-height: 80px;
       padding: 8px;
 
@@ -135,13 +136,5 @@
       }
 
     }
-
-
-
-
   }
-
-
-
-
 }
