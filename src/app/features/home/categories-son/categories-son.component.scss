@@ -1,0 +1,25 @@
+.categories-container-primary{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+.container-category{
+   margin-right: 18px;
+ width: 76px;
+    height: 100%;
+  
+}
+.img-category{
+    max-width: 76px;
+    height: 78px;
+    border-radius: 22px;
+    object-fit: cover;
+}
+.category-title{
+    text-align: center;
+}
+.center{
+    width: 95%;
+    margin: auto;
+}

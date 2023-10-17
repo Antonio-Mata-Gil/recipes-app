@@ -1,3 +1,9 @@
+.center {
+  width: 95%;
+  margin: auto;
+}
+
+
 #container {
   text-align: center;
 
@@ -25,24 +31,117 @@
 #container a {
   text-decoration: none;
 }
-.header-md{
+
+.header-md {
   box-shadow: none;
   border-bottom: 1px solid #8c8c8c;
   margin: auto;
-    width: 95%;
-}
-.title-header{
-  font-size: 34px;
-  font-weight: 700;
-  padding-inline:10px
-}
-.sc-ion-searchbar-md-h{
-  --box-shadow: none;
-  
-}
-.sc-ion-searchbar-md-h{
---background: #e9e9ea;
---border-radius: 10px;
-margin-bottom: 10px;
+  width: 95%;
 }
 
+.title-header {
+  font-size: 34px;
+  font-weight: 700;
+  padding-inline: 10px
+}
+
+.sc-ion-searchbar-md-h {
+  --box-shadow: none;
+
+}
+
+.sc-ion-searchbar-md-h {
+  --background: #e9e9ea;
+  --border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.container-primary-buttons {
+  --background: #eeeeef;
+  border-radius: 8px;
+  width: 95%;
+  margin: auto;
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+.container-button {
+  min-height: 32px;
+  height: 32px;
+  --indicator-color: transparent;
+  --background-checked: white;
+  margin: 2px;
+  border-radius: 7px;
+
+}
+
+.segment-button-checked {
+  box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.04), 0px 3px 8px 0px rgba(0, 0, 0, 0.12);
+}
+
+.lable-button {
+  margin: 0%;
+  --color-checked: black;
+  color: black;
+
+}
+
+.container-primary-recipe {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 22px;
+  justify-content: space-around;
+  overflow-x: scroll;
+  height: 48%;
+  border-radius: 0px 0px 22px 22px;
+
+  .recipe-container {
+    width: 46%;
+    min-width: 161px;
+    min-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 22px;
+
+    .img-recepi {
+      max-width: 161px;
+      min-width: 175px;
+      min-height: 200px;
+      border-radius: 22px;
+    }
+
+    .background-card-recipe {
+      border-radius: 0px 0px 22px 22px;
+      background: rgba(249, 249, 249, 0.75);
+      position: relative;
+      bottom: -122px;
+      backdrop-filter: blur(10px);
+      min-width: 161px;
+      min-height: 80px;
+      padding: 8px;
+
+      p {
+        width: 150px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin: 0;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+    }
+
+
+
+
+  }
+
+
+
+
+}

@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
+import { HomePage } from './homePage';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { RouterModule } from '@angular/router';
+import { CategoriesSonComponent } from './categories-son/categories-son.component';
 
 
 @NgModule({
@@ -16,6 +17,6 @@ import { RouterModule } from '@angular/router';
     HomePageRoutingModule,
     RouterModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, CategoriesSonComponent]
 })
 export class HomePageModule {}

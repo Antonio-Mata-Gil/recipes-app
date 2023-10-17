@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="center">
   <ion-header>
     <ion-toolbar>
       <ion-title class="title-header">¡Hola, Antonio!</ion-title>
@@ -8,7 +8,37 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <h1>este es el home</h1>
+  <app-categories-son [CategoriesList]="ApiCategories"></app-categories-son>
+
+  <ion-segment (ionChange)="segmentChanged($event)" value="Popular" class="container-primary-buttons">
+    <ion-segment-button value="Popular" class="container-button">
+      <ion-label class="lable-button">Popular</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="new" class="container-button">
+      <ion-label class="lable-button">Nuevas</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="My-recipes" class="container-button">
+      <ion-label class="lable-button">Mias</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <div class="container-primary-recipe center">
+    <div *ngFor="let recipes of filteredRecipes" class="recipe-container ">
+     
+        <div class="img-recepi" style="background-image: url({{recipes.img}}); background-size: cover;
+          background-position: top center;
+          background-repeat: no-repeat;">
+          <div class="background-card-recipe">
+            <h3> {{recipes.title}} </h3>
+            <p> {{recipes.description}} </p>
+          </div>
+
+        </div>
+
+     
+    </div>
   </div>
+
+
 </ion-content>

@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { FormRoutingModule } from './form-routing.module';
+import { IonicModule } from '@ionic/angular';
 
+import { FormPageRoutingModule } from './form-routing.module';
+
+import { FormPage } from './form.page';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
-    FormRoutingModule
-  ]
+    FormsModule,
+    IonicModule,
+    FormPageRoutingModule
+  ],
+  declarations: [FormPage]
 })
-export class FormModule { }
+export class FormPageModule {}
