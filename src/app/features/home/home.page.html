@@ -24,7 +24,7 @@
 
 
   <div class="container-primary-recipe center">
-    <div *ngFor="let recipes of filteredRecipes" class="recipe-container ">
+    <div *ngFor="let recipes of filteredRecipes" class="recipe-container " [routerLink]="['/recipe-details', recipes.id]" >
      
         <div class="img-recepi" style="background-image: url({{recipes.img}}); background-size: cover;
           background-position: top center;

@@ -1,0 +1,38 @@
+<ion-content class="ion-content" [fullscreen]="true">
+  <div class="container-primary-details">
+    <div class="img-container" style="background-image: url({{recipe?.img}});">
+      <div class="gradient-container">
+        <h1>{{recipe?.title}}</h1>
+
+      </div>
+    </div>
+    <div class="center">
+      <ion-segment (ionChange)="segmentSelect($event)" value="Ingredeintes" class="container-primary-buttons">
+        <ion-segment-button value="Ingredeintes" class="container-button">
+          <ion-label class="lable-button">Ingredientes</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Preparacion" class="container-button">
+          <ion-label class="lable-button">Preparación</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+   
+      <ion-list class="ingrdient-container center scroll" *ngIf="ingredientOn">
+        <ion-item *ngFor="let ingrient of recipe?.ingredientes">
+          <ion-label>
+            <h2>{{ingrient.nombre}}</h2>
+            <p>{{ingrient.cantidad}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      
+    
+    <ion-list class="step-container center scroll" *ngIf="!ingredientOn">
+      <ion-item *ngFor="let step of recipe?.steps">
+        <ion-label class="label-class">
+          <h2 >{{step.number}}. {{step.step}} </h2>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

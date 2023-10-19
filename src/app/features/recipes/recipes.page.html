@@ -7,4 +7,13 @@
       <ion-searchbar></ion-searchbar>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngFor="let recipes of ApiRecipes" class="recipes-container center" [routerLink]="['/recipe-details', recipes.id]" >
+    <div class="img-class-container" style="background-image: url({{recipes.img}});"></div>
+      
+    <div class="info-recepe-container">
+      <h2> {{recipes.title}} </h2>
+      <p> {{recipes.description}} </p>
+    </div>
+    </div>
 </ion-content>

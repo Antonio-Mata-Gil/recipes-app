@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonSegment } from '@ionic/angular';
 import { ApiServiceService } from 'src/app/core/services/api-service.service';
 import { CategoriesApiResponse, RecipesApiResponse } from 'src/app/core/services/recipes.models';
@@ -14,7 +15,8 @@ export class HomePage {
   public ApiRecipes?: RecipesApiResponse[] = [];
   public filteredRecipes?: RecipesApiResponse[]=[];
   public ApiCategories?: CategoriesApiResponse[] = [];
-  constructor(private recipesApi: ApiServiceService) { }
+
+  constructor(private recipesApi: ApiServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getRecipesList();
@@ -56,4 +58,6 @@ export class HomePage {
       }
     }
   }
+
+  
 }
