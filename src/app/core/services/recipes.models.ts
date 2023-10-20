@@ -16,10 +16,9 @@ export interface RecipesApiResponse {
   }
   
   export interface Step {
-    "1"?: string
-    "2"?: string
-    "3"?: string
-}
+    number: number
+    step: string
+  }
 export interface CategoriesApiResponse{
     category: string
     img: string

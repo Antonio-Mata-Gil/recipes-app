@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { CategoriesApiResponse, RecipesApiResponse } from './recipes.models';
 
 @Injectable({
@@ -15,6 +15,8 @@ export class ApiServiceService {
    public getRecipes(): Observable<RecipesApiResponse[]>{
       return this.http.get<RecipesApiResponse[]>(`${this.url}/recipes`)
     }
+  
+    
     public getCategories(): Observable<CategoriesApiResponse[]>{
       return this.http.get<CategoriesApiResponse[]>(`${this.url}/categories`)
     }
