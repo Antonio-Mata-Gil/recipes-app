@@ -1,7 +1,7 @@
 <div class="center">
   <h2>Categorías</h2>
   <div class="categories-container-primary">
-    <div class="container-category" *ngFor=" let category of CategoriesList">
+    <div class="container-category" *ngFor=" let category of CategoriesList" (click)="goToCategories(category)">
       <img class="img-category" src="{{category.img}}" alt="{{category.category}}">
       <p class="category-title"> {{category.category}} </p>
 

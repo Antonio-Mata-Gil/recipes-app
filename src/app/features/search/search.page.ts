@@ -3,16 +3,14 @@ import { ApiServiceService } from 'src/app/core/services/api-service.service';
 import { RecipesApiResponse } from 'src/app/core/services/recipes.models';
 
 @Component({
-  selector: 'app-recipes',
-  templateUrl: './recipes.page.html',
-  styleUrls: ['./recipes.page.scss'],
+  selector: 'app-search',
+  templateUrl: './search.page.html',
+  styleUrls: ['./search.page.scss'],
 })
-export class RecipesPage implements OnInit {
-  
-  public ApiRecipes: RecipesApiResponse[] = [];
-  public filterText: string = '';
+export class SearchPage implements OnInit {
+  public ApiRecipes?: RecipesApiResponse[] = [];
 
-  constructor(private recipesApi: ApiServiceService,) { }
+  constructor(private recipesApi: ApiServiceService) { }
 
   ngOnInit() {
     this.getRecipesList();
@@ -22,10 +20,6 @@ export class RecipesPage implements OnInit {
       this.ApiRecipes = recipes;
       
     });
-}
-onFilterTextChange(event: string) {
-  this.filterText = event
-  
 }
 
 }

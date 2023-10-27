@@ -2,6 +2,7 @@
 
 
 .container-primary-details {
+    
 
     .img-container {
         width: 100%;
@@ -9,6 +10,42 @@
         background-size: cover;
         margin-top: 0;
         margin-bottom: 50px;
+        .button-edit-container{
+            position: absolute;
+            top: 50px;
+            right: -8px;
+            
+           
+            .icon-button {
+                
+                
+                --background: rgba(245, 245, 245, 0.75);
+                --border-radius: 40px 0px 0px 40px;
+                    
+                --box-shadow:none;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                text-transform: none;
+               
+                
+                .create-outline{
+                    color: #FFA63E;
+                    font-size: 34px;
+                }
+                .edit-button{
+                    color: black;
+                    font-weight: 600;
+                    font-size: 14px;
+                    margin-top: 16px;
+                    margin-left: 5px;
+    
+                }
+        }
+       
+
+        
+        }
 
         .gradient-container {
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 6.25%, rgba(255, 255, 255, 0.46) 29.94%, #FFF 75.39%);
@@ -33,24 +70,34 @@
                 top: 20px;
 
             }
-           
-        }
-       
-    }
-   .scroll{
-    overflow-x: scroll;
-    height: 40vh;
-    .label-class{
-        h2{
-            line-height: 3vh;
-        }
-       
-    }
-   }
-   .sc-ion-label-md-h{
-    white-space: normal;
-    
-   }
-    
 
+        }
+
+    }
+
+    .scroll {
+        overflow-x: scroll;
+        height: 40vh;
+
+        .label-class {
+            h2 {
+                line-height: 3vh;
+            }
+
+        }
+    }
+
+    .sc-ion-label-md-h {
+        white-space: normal;
+
+    }
+
+    .time-container {
+        --border-style: none !important;
+        --min-height: 0px;
+
+        .label-class-time {
+            margin: 0;
+        }
+    }
 }

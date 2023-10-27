@@ -8,6 +8,8 @@ import { RecipesPageRoutingModule } from './recipes-routing.module';
 
 import { RecipesPage } from './recipes.page';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from 'src/app/core/core.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -15,6 +17,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     IonicModule,
     RecipesPageRoutingModule,
+    CoreModule,
+    PipesModule
     
   ],
   declarations: [RecipesPage]

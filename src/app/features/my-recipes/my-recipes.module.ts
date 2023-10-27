@@ -8,6 +8,7 @@ import { MyRecipesPageRoutingModule } from './my-recipes-routing.module';
 
 import { MyRecipesPage } from './my-recipes.page';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     IonicModule,
     MyRecipesPageRoutingModule,
+    CoreModule
     
   ],
   declarations: [MyRecipesPage]

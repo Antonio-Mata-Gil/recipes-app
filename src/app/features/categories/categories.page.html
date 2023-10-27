@@ -1,10 +1,12 @@
 <ion-content [fullscreen]="true">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title class="title-header">Busca una receta</ion-title>
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-searchbar></ion-searchbar>
-    </ion-toolbar>
-  </ion-header>
+  <app-header></app-header>
+
+  <div class="conitainer-categories-primary center">
+    <div class="container-categories" *ngFor=" let category of ApiCategories" [routerLink]="['category-details', category.category]">
+     <div class="img-categories" style="background-image: url({{category.img}});">
+    <h2>{{category.category}}</h2>
+    </div> 
+
+    </div>
+  </div>
 </ion-content>

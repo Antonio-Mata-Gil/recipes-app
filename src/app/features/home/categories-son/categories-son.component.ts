@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoriesApiResponse } from 'src/app/core/services/recipes.models';
 
 @Component({
@@ -10,8 +11,11 @@ export class CategoriesSonComponent  implements OnInit {
   @Input() public CategoriesList?: CategoriesApiResponse[] = [];
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
-
+  goToCategories(category: CategoriesApiResponse) {
+    this.router.navigate(['/tabs/categories/category-details', category.category]);
+    
+  }
 }

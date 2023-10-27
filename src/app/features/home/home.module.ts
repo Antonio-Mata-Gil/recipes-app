@@ -7,6 +7,8 @@ import { HomePage } from './homePage';
 import { HomePageRoutingModule } from './home-routing.module';
 import { RouterModule } from '@angular/router';
 import { CategoriesSonComponent } from './categories-son/categories-son.component';
+import { HeaderComponent } from 'src/app/core/header/header.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { CategoriesSonComponent } from './categories-son/categories-son.componen
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    RouterModule
+    RouterModule,
+    CoreModule
   ],
   declarations: [HomePage, CategoriesSonComponent]
 })

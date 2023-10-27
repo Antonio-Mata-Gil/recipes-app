@@ -1,13 +1,5 @@
 <ion-content [fullscreen]="true" class="center">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title class="title-header">¡Hola, Antonio!</ion-title>
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-searchbar></ion-searchbar>
-    </ion-toolbar>
-  </ion-header>
-
+  <app-header></app-header>
   <app-categories-son [CategoriesList]="ApiCategories"></app-categories-son>
 
   <ion-segment (ionChange)="segmentChanged($event)" value="Popular" class="container-primary-buttons">

@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
-  <app-header (filterTextChanged)="onFilterTextChange($event)"></app-header>
+  <app-header></app-header>
   <div class="container-primary-recipe-page center">
-    <div *ngFor="let recipes of ApiRecipes | filtro:filterText" class="recipes-container "
+    <div *ngFor="let recipes of recipes" class="recipes-container "
       [routerLink]="['/recipe-details', recipes.id]">
       <div class="img-class-container" style="background-image: url({{recipes.img}});"></div>
 
@@ -12,4 +12,5 @@
       </div>
     </div>
   </div>
+
 </ion-content>

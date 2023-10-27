@@ -1,10 +1,15 @@
 <ion-content [fullscreen]="true">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title class="title-header">Busca una receta</ion-title>
-    </ion-toolbar>
-    <ion-toolbar>
-      <ion-searchbar></ion-searchbar>
-    </ion-toolbar>
-  </ion-header>
+  <app-header></app-header>
+  <div class="container-primary-recipe-page center">
+    <div *ngFor="let recipes of myRecipes" class="recipes-container "
+      [routerLink]="['/recipe-details', recipes.id]">
+      <div class="img-class-container" style="background-image: url({{recipes.img}});"></div>
+
+      <div class="info-recepe-container">
+        <h2> {{recipes.title}} </h2>
+        <p> {{recipes.description}} </p>
+        <p class="details-button">Ver detalles</p>
+      </div>
+    </div>
+  </div>
 </ion-content>

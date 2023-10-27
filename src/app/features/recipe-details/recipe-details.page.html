@@ -1,6 +1,13 @@
 <ion-content class="ion-content" [fullscreen]="true">
   <div class="container-primary-details">
     <div class="img-container" style="background-image: url({{recipe?.img}});">
+      <div class="button-edit-container" *ngIf="recipe?.mine">
+        <ion-button size="small" class="icon-button">
+          <ion-icon name="create-outline" class="create-outline"></ion-icon>
+          <p class="edit-button">Editar Receta</p>
+          </ion-button>
+      </div>
+    
       <div class="gradient-container">
         <h1>{{recipe?.title}}</h1>
 
@@ -28,8 +35,13 @@
       
     
     <ion-list class="step-container center scroll" *ngIf="!ingredientOn">
+      <ion-item class="time-container" >
+        <ion-label class="label-class-time" >
+          <p>{{recipe?.time}} minutos</p>
+        </ion-label>
+      </ion-item>
       <ion-item *ngFor="let step of recipe?.steps">
-        <ion-label class="label-class">
+        <ion-label class="label-class" >
           <h2 >{{step.number}}. {{step.step}} </h2>
         </ion-label>
       </ion-item>

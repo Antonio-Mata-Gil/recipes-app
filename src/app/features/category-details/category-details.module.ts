@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CategoriesPageRoutingModule } from './categories-routing.module';
+import { CategoryDetailsPageRoutingModule } from './category-details-routing.module';
 
-import { CategoriesPage } from './categories.page';
-import { RouterModule } from '@angular/router';
+import { CategoryDetailsPage } from './category-details.page';
 import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
@@ -15,10 +14,9 @@ import { CoreModule } from 'src/app/core/core.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoriesPageRoutingModule,
+    CategoryDetailsPageRoutingModule,
     CoreModule
-    
   ],
-  declarations: [CategoriesPage]
+  declarations: [CategoryDetailsPage]
 })
-export class CategoriesPageModule {}
+export class CategoryDetailsPageModule {}

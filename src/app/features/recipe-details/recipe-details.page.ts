@@ -20,10 +20,10 @@ export class RecipeDetailsPage implements OnInit {
     const recipeId = this.route.snapshot.paramMap.get('id');
 
     if (recipeId) {
-      const numericRecipeId = parseInt(recipeId, 10);
+      const numericRecipeId = recipeId
       this.apiService.getRecipes().subscribe(recipes => {
         this.recipe = recipes.find(recipe => recipe.id === numericRecipeId) || null; 
-        console.log(this.recipe);
+         console.log(this.recipe);        
          
       });
     }

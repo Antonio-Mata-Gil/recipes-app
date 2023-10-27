@@ -1,47 +1,47 @@
-@import '../../app.component.scss';
 
-.header-md{
-    box-shadow: none;
-    border-bottom: 1px solid #8c8c8c;
-    margin: auto;
-    width: 95%;
-  }
-  .title-header{
-    font-size: 34px;
-    font-weight: 700;
-    padding-inline:10px
-  }
-  .sc-ion-searchbar-md-h{
-    --box-shadow: none;
-    
-  }
-  .sc-ion-searchbar-md-h{
-  --background: #e9e9ea;
-  --border-radius: 10px;
-  margin-bottom: 10px;
-  }
-  .recipes-container{
+@import '../../app.component.scss';
+.container-primary-recipe-page {
+  overflow-y: auto;
+  height: 69.3vh;
+  border-radius: 0px 0px 12px 12px;
+
+  .recipes-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-     .img-class-container{
+    gap: 19px;
+    margin-top: 18px;
+
+    .img-class-container {
       min-width: 84px;
       height: 84px;
       border-radius: 12px;
       background-size: cover;
-     }
-     .info-recepe-container{
-      margin-left: 20px;
+    }
 
-      h2{
+    .info-recepe-container {
+
+      h2 {
         margin-bottom: 3px;
         font-size: 16px;
         font-weight: 700;
 
       }
-      p{
+
+      p {
         margin-top: 3px;
+        font-size: 12px;
+        width: 65vw;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
-     }
+      .details-button{
+        font-weight: 700;
+        text-align: end;
+        margin: 0;
+      }
+    }
   }
-  
+
+}

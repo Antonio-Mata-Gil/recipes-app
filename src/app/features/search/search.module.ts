@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CategoriesPageRoutingModule } from './categories-routing.module';
+import { SearchPageRoutingModule } from './search-routing.module';
 
-import { CategoriesPage } from './categories.page';
-import { RouterModule } from '@angular/router';
+import { SearchPage } from './search.page';
 import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
@@ -15,10 +14,9 @@ import { CoreModule } from 'src/app/core/core.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    CategoriesPageRoutingModule,
+    SearchPageRoutingModule,
     CoreModule
-    
   ],
-  declarations: [CategoriesPage]
+  declarations: [SearchPage]
 })
-export class CategoriesPageModule {}
+export class SearchPageModule {}
