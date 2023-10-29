@@ -1,13 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>edit-recipe</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content class="ion-padding">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">edit-recipe</ion-title>
+      <ion-buttons slot="start">
+        <ion-button (click)="cancel(recipe)">Cancelar</ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
+  <app-recipe-form *ngIf="recipe" [recipe]="recipe" ></app-recipe-form>
 </ion-content>

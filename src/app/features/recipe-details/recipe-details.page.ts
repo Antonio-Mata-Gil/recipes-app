@@ -1,8 +1,10 @@
 import { Step } from './../../core/services/recipes.models';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { ApiServiceService } from 'src/app/core/services/api-service.service';
 import { RecipesApiResponse } from 'src/app/core/services/recipes.models';
+import { EditRecipePage } from '../edit-recipe/edit-recipe.page';
 
 @Component({
   selector: 'app-recipe-details',
@@ -10,23 +12,19 @@ import { RecipesApiResponse } from 'src/app/core/services/recipes.models';
   styleUrls: ['./recipe-details.page.scss'],
 })
 export class RecipeDetailsPage implements OnInit {
-  public recipe: RecipesApiResponse | null = null;
+  public recipe?: RecipesApiResponse;
   public ingredientOn: boolean = true 
   public recipeDetails: RecipesApiResponse [] = [];
-
-  constructor(private apiService: ApiServiceService, private route: ActivatedRoute) {}
+  constructor(private apiService: ApiServiceService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    const recipeId = this.route.snapshot.paramMap.get('id');
-
-    if (recipeId) {
-      const numericRecipeId = recipeId
-      this.apiService.getRecipes().subscribe(recipes => {
-        this.recipe = recipes.find(recipe => recipe.id === numericRecipeId) || null; 
-         console.log(this.recipe);        
-         
-      });
-    }
+    this.route.params.subscribe((params)=>{
+      const recipeid = params['id'];
+      this.apiService.getRecipeId(recipeid).subscribe((info:RecipesApiResponse)=>{
+        this.recipe= info
+        
+      })
+    })
   }
   public segmentSelect(event:any){
     const selectedSegment = event.detail.value
@@ -39,5 +37,9 @@ export class RecipeDetailsPage implements OnInit {
       this.ingredientOn = false
     }
   }
+  editButton(recipe?: RecipesApiResponse){
+    this.router.navigate(['/edit-recipe', recipe?.id])
+  }
+  
  
 }
