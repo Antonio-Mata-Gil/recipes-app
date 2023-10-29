@@ -31,6 +31,24 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./core/tabs/tabs.module').then( m => m.TabsPageModule)
   },
+  {
+    path: 'recipe-details/:id',
+    loadChildren: () => import('./features/recipe-details/recipe-details.module').then( m => m.RecipeDetailsPageModule)
+  },
+  {
+    path: 'category-details/:category',
+    loadChildren: () => import('./features/category-details/category-details.module').then( m => m.CategoryDetailsPageModule)
+  },
+
+  {
+    path: 'search',
+    loadChildren: () => import('./features/search/search.module').then( m => m.SearchPageModule)
+  },
+  {
+    path: 'edit-recipe/:id',
+    loadChildren: () => import('./features/edit-recipe/edit-recipe.module').then( m => m.EditRecipePageModule)
+  },
+  
 ];
 
 @NgModule({

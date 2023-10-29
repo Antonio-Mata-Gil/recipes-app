@@ -1,0 +1,37 @@
+.container-primary-buttons {
+    --background: #eeeeef;
+    border-radius: 8px;
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    .container-button {
+        min-height: 32px;
+        height: 32px;
+        --indicator-color: transparent;
+        --background-checked: white;
+        margin: 2px;
+        border-radius: 7px;
+
+        .lable-button {
+            margin: 0%;
+            --color-checked: black;
+            color: black;
+          
+          }
+      
+      }
+  }
+  
+ 
+  
+  .segment-button-checked {
+    box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.04), 0px 3px 8px 0px rgba(0, 0, 0, 0.12);
+  }
+  .center {
+    width: 95%;
+    margin: auto;
+  }
+  
+ 
+  

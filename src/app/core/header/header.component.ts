@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent  implements OnInit {
 
-  constructor() { }
+  @Output() filterTextChanged: EventEmitter<string> = new EventEmitter<string>();
+
+
+  constructor(private router: Router) { }
 
   ngOnInit() {}
+
+  goToSearch() {
+    this.router.navigate(['/tabs/recipes']);
+  }
+  onFilterTextChanged(event: any) {
+    
+    this.filterTextChanged.emit(event.detail.value);
+    this.router.navigate(['/tabs/recipes']);
+  }
 
 }

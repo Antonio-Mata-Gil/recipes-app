@@ -1,13 +1,13 @@
 export interface RecipesApiResponse {
-    id: number
+    id: string
     title: string
     img: string
     category: string
     time: number
-    ingredientes: Ingrediente[]
+    ingredientes?: Ingrediente[]
     description: string
-    steps: Step[]
-    mine: boolean
+    steps?: Step[]
+    mine?: boolean
   }
   
   export interface Ingrediente {
