@@ -1,7 +1,15 @@
+<ion-header class="header-container">
+  <ion-toolbar class="toolbar-container">
+    <ion-button slot="start" class="button-header">
+      <ion-back-button></ion-back-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="ion-content" [fullscreen]="true">
   <div class="container-primary-details">
+   
     <div class="img-container" style="background-image: url({{recipe?.img}});">
-
+     
       <ion-nav-link class="button-edit-container" *ngIf="recipe?.mine" >
         <ion-button size="small" class="icon-button" (click)="editButton(recipe)">
           <ion-icon name="create-outline" class="create-outline"></ion-icon>

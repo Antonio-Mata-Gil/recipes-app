@@ -1,6 +1,17 @@
 @import '../../app.component.scss';
 
-
+.header-container{
+    position: absolute;
+    --background: red;
+    box-shadow: none;
+    .toolbar-container{
+        --background: transparent;
+        .button-header{
+            --background: transparent;
+            --box-shadow:none;
+        }
+    }
+}
 .container-primary-details {
     
 
