@@ -28,4 +28,11 @@ onFilterTextChange(event: string) {
   
 }
 
+handleRefresh(ev: any) {
+  this.getRecipesList();
+  setTimeout(() => {
+    ev.target.complete();
+  }, 1000);
+}
+
 }

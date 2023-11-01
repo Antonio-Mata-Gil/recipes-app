@@ -13,7 +13,9 @@
       <ion-label class="lable-button">Mias</ion-label>
     </ion-segment-button>
   </ion-segment>
-
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
   <div class="container-primary-recipe center">
     <div *ngFor="let recipes of filteredRecipes" class="recipe-container " [routerLink]="['/recipe-details', recipes.id]" >

@@ -1,7 +1,7 @@
 import {  Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { ApiServiceService } from 'src/app/core/services/api-service.service';
 import { RecipesApiResponse, Step } from 'src/app/core/services/recipes.models';
 
@@ -23,7 +23,7 @@ export class RecipeFormComponent implements OnInit {
           {
             text: 'Volver al home',
             handler: () => {
-              this.router.navigate(['/tabs'])
+              this.modalCtrl.dismiss(null, 'cancel');
             
              
    
@@ -61,7 +61,7 @@ export class RecipeFormComponent implements OnInit {
       }
     }
    
-  constructor( private fb: FormBuilder, private recipeService: ApiServiceService, private router: Router, private alertController: AlertController) { }
+  constructor( private fb: FormBuilder, private recipeService: ApiServiceService, private router: Router, private alertController: AlertController, private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.recipeForm = this.fb.group({

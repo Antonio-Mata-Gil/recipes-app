@@ -21,4 +21,11 @@ export class MyRecipesPage implements OnInit {
       
     });
   }
+
+  handleRefresh(ev: any) {
+    this.getRecipesList();
+    setTimeout(() => {
+      ev.target.complete();
+    }, 1000);
+  }
 }

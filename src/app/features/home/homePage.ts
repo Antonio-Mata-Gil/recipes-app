@@ -55,6 +55,12 @@ export class HomePage {
       }
     }
   }
-
+  handleRefresh(ev: any) {
+    this.getRecipesList();
+    setTimeout(() => {
+      ev.target.complete();
+    }, 1000);
+  }
+  
   
 }

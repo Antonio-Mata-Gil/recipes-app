@@ -27,4 +27,11 @@ export class CategoryDetailsPage implements OnInit {
       
     });
   }
+
+  handleRefresh(ev: any) {
+    this.loadRecipesByCategory(this.category); 
+    setTimeout(() => {
+      ev.target.complete();
+    }, 1000);
+  }
 }
