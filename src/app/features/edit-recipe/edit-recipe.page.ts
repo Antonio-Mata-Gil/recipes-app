@@ -22,6 +22,6 @@ export class EditRecipePage implements OnInit {
     })
   }
   cancel(recipe?: RecipesApiResponse) {
-    this.router.navigate(['/recipe-details', recipe?.id])
+    this.router.navigate(['/tabs'])
   }
 }
