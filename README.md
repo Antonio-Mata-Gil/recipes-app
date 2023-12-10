@@ -14,7 +14,7 @@ Ensure you have the following components installed:
 
 - Clone this repository to your local machine:
   ```bash
-  git clone https://github.com/your-username/myRecipes.git
+  git clone https://github.com/Antonio-Mata-Gil/recipes-app.git
 
 ## Step 2: Install Dependencies 📦
 Navigate to the project folder and install the required dependencies by running:
