@@ -1,19 +1,22 @@
 @import '../../app.component.scss';
 
-.header-container{
+.header-container {
     position: absolute;
     --background: red;
     box-shadow: none;
-    .toolbar-container{
+
+    .toolbar-container {
         --background: transparent;
-        .button-header{
+
+        .button-header {
             --background: transparent;
-            --box-shadow:none;
+            --box-shadow: none;
         }
     }
 }
+
 .container-primary-details {
-    
+
 
     .img-container {
         width: 100%;
@@ -21,41 +24,43 @@
         background-size: cover;
         margin-top: 0;
         margin-bottom: 50px;
-        .button-edit-container{
+
+        .button-edit-container {
             position: absolute;
             top: 50px;
             right: -8px;
-            
-           
+
+
             .icon-button {
-                
-                
+
+
                 --background: rgba(245, 245, 245, 0.75);
                 --border-radius: 40px 0px 0px 40px;
-                    
-                --box-shadow:none;
+
+                --box-shadow: none;
                 display: flex;
                 flex-direction: row;
                 justify-content: center;
                 text-transform: none;
-               
-                
-                .create-outline{
+
+
+                .create-outline {
                     color: #FFA63E;
                     font-size: 34px;
                 }
-                .edit-button{
+
+                .edit-button {
                     color: black;
                     font-weight: 600;
                     font-size: 14px;
                     margin-top: 16px;
                     margin-left: 5px;
-    
-                }
-        }
-       
 
-        
+                }
+            }
+
+
+
         }
 
         .gradient-container {
@@ -68,7 +73,7 @@
                 margin-top: 0;
                 width: 80%;
                 margin: auto;
-               
+
                 font-weight: 700;
                 font-family: sans-serif;
                 letter-spacing: 4.87px;
@@ -109,6 +114,42 @@
 
         .label-class-time {
             margin: 0;
+        }
+    }
+}
+
+@media screen and (min-width:550px) {
+
+    .container-primary-details {
+        .img-container {
+            .gradient-container{
+                h1{
+                    font-size: 3rem;
+                }
+            }
+        }
+
+    }
+
+    .container-primary-buttons {
+        margin-top: 25px;
+        border-radius: 12px;
+
+        .container-button {
+            height: 44px;
+            max-height: 44px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+        }
+    }
+
+    .sc-ion-label-md-s{
+        h2{
+            font-size: 1.8rem;
+
+        }
+        p{
+            font-size: 1.2rem;
         }
     }
 }

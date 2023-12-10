@@ -1,5 +1,5 @@
-
 @import '../../app.component.scss';
+
 .container-primary-recipe-page {
   overflow-y: auto;
   height: 69.3vh;
@@ -36,7 +36,8 @@
         white-space: nowrap;
         text-overflow: ellipsis;
       }
-      .details-button{
+
+      .details-button {
         font-weight: 700;
         text-align: end;
         margin: 0;
@@ -44,4 +45,25 @@
     }
   }
 
+}
+
+@media screen and (min-width:550px) {
+  .container-primary-recipe-page {
+
+    .recipes-container {
+      gap: 30px;
+      .img-class-container {
+        min-width: 115px;
+        height: 115px;
+      }
+      .info-recepe-container{
+        h2{
+          font-size: 1.6rem;
+        }
+        p{
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
 }

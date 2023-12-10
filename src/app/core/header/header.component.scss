@@ -11,13 +11,20 @@
     padding-inline: 10px
   }
   
-  .sc-ion-searchbar-md-h {
-    --box-shadow: none;
-  
-  }
+
   
   .sc-ion-searchbar-md-h {
     --background: #e9e9ea;
     --border-radius: 10px;
     margin-bottom: 10px;
+    --box-shadow: none;
+    
+  }
+
+  @media screen and (min-width:550px) {
+    .title-header {
+      font-size: 2.5rem;
+    }
+
+    
   }

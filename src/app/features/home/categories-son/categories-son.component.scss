@@ -23,3 +23,17 @@
     width: 95%;
     margin: auto;
 }
+
+@media screen and (min-width:550px){
+    h2{
+        font-size: 2.5rem;
+    }
+
+    .img-category{
+        max-width: 110px;
+        height: 112px;
+    }
+    .category-title{
+        font-size: 1.4rem;
+    }
+}

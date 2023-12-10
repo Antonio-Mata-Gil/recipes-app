@@ -140,3 +140,31 @@ ion-label {
     margin-top: 15px !important;
     --background: red;
 }
+
+@media screen and (min-width:550px){
+    ion-label{
+        font-size: 1.5rem;
+    }
+    .img-container{
+        p{
+            font-size: 1.2rem;
+        }
+    }
+    .input-text{
+        font-size: 1.2rem;
+    }
+    .time-container-number {
+        p{
+            font-size: 1.5rem;
+        }
+    }
+    .container-button-remove{
+        .icon-container-r{
+            font-size: 1.2rem;
+        }
+       
+    }
+    .button-confirm{
+        font-size: 1.2rem;
+    }
+}

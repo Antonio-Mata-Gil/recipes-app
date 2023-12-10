@@ -1,7 +1,8 @@
 @import '../../app.component.scss';
 
 
-.inner-scroll, .scroll-y{
+.inner-scroll,
+.scroll-y {
   overflow: hidden;
   height: 100%;
 }
@@ -91,6 +92,43 @@
         text-overflow: ellipsis;
       }
 
+    }
+  }
+}
+
+@media screen and (min-width:550px) {
+  .container-primary-buttons {
+    margin-top: 25px;
+    border-radius: 12px;
+
+    .container-button {
+      height: 44px;
+      max-height: 44px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+    }
+  }
+
+  .container-primary-recipe {
+    height: 50%;
+    justify-content: space-around;
+
+    .img-recepi {
+      height: 266px;
+
+      .background-card-recipe {
+        bottom: -168px;
+        min-width: 40vw;
+        height: 100px;
+
+        p{
+          width: 100%;
+          font-size: 1.35rem;
+        }
+        h3{
+          font-size: 26px;
+        }
+      }
     }
   }
 }
