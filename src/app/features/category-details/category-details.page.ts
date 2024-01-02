@@ -22,7 +22,7 @@ export class CategoryDetailsPage implements OnInit {
   }
 
   loadRecipesByCategory(category: string): void {
-    this.apiService.getRecipes().subscribe(recipes => {
+    this.apiService.getRecipe().subscribe(recipes => {
       this.recipes = recipes.filter(recipe => recipe.category === category);
       
     });

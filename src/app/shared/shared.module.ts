@@ -6,7 +6,6 @@ import { RecipeFormComponent } from './component/recipe-form/recipe-form.compone
 import { IonicModule } from '@ionic/angular';
 
 
-
 @NgModule({
   declarations: [RecipeFormComponent],
   imports: [
@@ -14,8 +13,9 @@ import { IonicModule } from '@ionic/angular';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule
+    RouterModule,
   ],
+ 
   exports: [
     RecipeFormComponent
   ]

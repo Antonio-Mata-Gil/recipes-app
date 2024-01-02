@@ -14,10 +14,11 @@ export class EditRecipePage implements OnInit {
   constructor(private router: Router, private apiService: ApiServiceService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params)=>{
+     this.route.params.subscribe((params)=>{
       const recipeid = params['id'];
-      this.apiService.getRecipeId(recipeid).subscribe((info:RecipesApiResponse)=>{
-        this.recipe= info               
+      this.apiService.getRecipeById(recipeid).subscribe((info )=>{
+        this.recipe= info[0];
+                
       })
     })
   }

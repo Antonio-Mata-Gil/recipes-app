@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiServiceService } from 'src/app/core/services/api-service.service';
 import { CategoriesApiResponse, RecipesApiResponse } from 'src/app/core/services/recipes.models';
 
@@ -22,7 +22,7 @@ export class HomePage {
   }
 
   public getRecipesList() {
-    this.recipesApi.getRecipes().subscribe(recipes => {
+    this.recipesApi.getRecipe().subscribe(recipes => {
       this.ApiRecipes = recipes;
       this.filteredRecipes = this.ApiRecipes.slice(0, 10)
       this.segmentChanged(event)

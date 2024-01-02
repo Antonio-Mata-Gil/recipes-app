@@ -4,9 +4,11 @@
     <img class="img-recipe" src="https://cdn.icon-icons.com/icons2/510/PNG/512/image_icon-icons.com_50366.png" alt="">
     <ion-label>Añadir una foto</ion-label> 
     <p>(Escribir url)</p>
-    <input class="input-img"  label-placement="floating" fill="outline" type="url" accept="image/*" formControlName="img" required />
+    <input class="input-img" id="inputImg"  label-placement="floating" fill="outline" type="file" (change)="OnclickImg($event)" accept="image/*" formControlName="img" required />
 
   </div>
+
+  <p *ngIf="!recipeForm.get('title')?.valid"   class="color-red">El Nombre de la Receta debe estar relleno antes de subir la imagen.</p>
 <div class="container-input">
 <ion-label>Nombre Receta</ion-label>
 <ion-input  
@@ -79,9 +81,9 @@ class="input-text textarea"
     </div>
   </div>
   <div>
-    <ion-button (click)="presentAlert()" class="button-confirm" type="submit">Confirmar</ion-button>
+    <ion-button (click)="presentAlert()" class="button-confirm" type="submit" >Confirmar</ion-button>
   </div>
  
-  <ion-button (click)="deleteAlert(recipe)" *ngIf="recipe" class="detele-button button-confirm"  >Eliminar</ion-button>
+  <ion-button (click)="deleteAlert(recipeId)" *ngIf="recipe" class="detele-button button-confirm"  >Eliminar</ion-button>
 
 </form>

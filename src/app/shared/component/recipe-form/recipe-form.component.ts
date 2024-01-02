@@ -1,21 +1,26 @@
-import {  Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ModalController } from '@ionic/angular';
 import { ApiServiceService } from 'src/app/core/services/api-service.service';
 import { RecipesApiResponse, Step } from 'src/app/core/services/recipes.models';
-
+import { Storage, ref } from '@angular/fire/storage'
+import { getDownloadURL, listAll, uploadBytes } from 'firebase/storage';
 @Component({
   selector: 'app-recipe-form',
   templateUrl: './recipe-form.component.html',
   styleUrls: ['./recipe-form.component.scss'],
 })
 export class RecipeFormComponent implements OnInit {
+
   @Input() public recipe?: RecipesApiResponse;
+  public recipeId!: string;
   public recipeForm?: FormGroup;
-  public steps: any[] = [{}]; 
+  public steps: any[] = [{}];
+  public file: any = [];
+  public imgLink: string = '';
   async presentAlert() {
-    if(this.recipeForm?.valid){
+    if (this.recipeForm?.valid) {
       const alert = await this.alertController.create({
         header: 'Receta Subida',
         message: 'Tu receta ha sido subida con éxito',
@@ -23,55 +28,60 @@ export class RecipeFormComponent implements OnInit {
           {
             text: 'Volver al home',
             handler: () => {
-              this.modalCtrl.dismiss(null, 'cancel');
-            
-             
-   
+              if(this.recipeId){
+                this.router.navigate(['/tabs']);
+              }else{
+                this.modalCtrl.dismiss(null, 'cancel');
+              }
+              
+
+
+
             }
           }
         ]
       });
-  
+
       await alert.present();
     }
-    }
+  }
 
-    async deleteAlert(recipe:RecipesApiResponse) {
-      if (this.recipe) {
-        const alert = await this.alertController.create({
-          header: 'Se eliminará la receta',
-          message: '¿Estás seguro de que deseas eliminar esta receta?',
-          buttons: [
-            {
-              text: 'No',
-              role: 'cancel',
-              handler: () => {
-              }
-            },
-            {
-              text: 'Sí',
-              handler: () => {
-                this.deleteRecipe(recipe);
-              }
+  async deleteAlert(recipeId: string) {
+    if (this.recipe) {
+      const alert = await this.alertController.create({
+        header: 'Se eliminará la receta',
+        message: '¿Estás seguro de que deseas eliminar esta receta?',
+        buttons: [
+          {
+            text: 'No',
+            role: 'cancel',
+            handler: () => {
             }
-          ]
-        });
-  
-        await alert.present();
-      }
+          },
+          {
+            text: 'Sí',
+            handler: () => {
+              this.deleteRecipe(recipeId);
+            }
+          }
+        ]
+      });
+
+      await alert.present();
     }
-   
-  constructor( private fb: FormBuilder, private recipeService: ApiServiceService, private router: Router, private alertController: AlertController, private modalCtrl: ModalController) { }
+  }
+
+  constructor(private fb: FormBuilder, private recipeService: ApiServiceService, private route: ActivatedRoute, private router: Router, private alertController: AlertController, private modalCtrl: ModalController, private storage: Storage) { }
 
   ngOnInit() {
     this.recipeForm = this.fb.group({
-      img: new FormControl(this.recipe?.img || '', [Validators.required]),
+      img: new FormControl(this.imgLink || 'no'),
       title: new FormControl(this.recipe?.title || '', [Validators.maxLength(50)]),
       description: new FormControl(this.recipe?.description || '', [Validators.maxLength(150)]),
       category: new FormControl(this.recipe?.category || '', [Validators.required]),
       time: new FormControl(this.recipe?.time || '', [Validators.required]),
-      ingredientes: this.fb.array([]), 
-      steps: this.fb.array([]), 
+      ingredientes: this.fb.array([]),
+      steps: this.fb.array([]),
       mine: new FormControl(true),
     });
 
@@ -86,11 +96,38 @@ export class RecipeFormComponent implements OnInit {
         this.getStep.at(index).get('number')?.setValue(index + 1);
       });
     }
+    if (this.recipe && this.recipe.steps) {
+      this.route.params.subscribe((params) => {
+        this.recipeId = params['id'];
+        this.recipeService.getRecipeById(this.recipeId).subscribe((info) => {
+          this.recipe = info[0];
+        })
+      })
+
+    }
+    this.imgUrl()
   }
+  async imgUrl() {
+
+    const imgRef = ref(this.storage, `imagen/${this.recipeForm?.value.title}`);
+    const response = await listAll(imgRef);
+    
+    
+
+    if (response.items.length > 0) {
+      const lastItem = response.items[response.items.length - 1];
+      this.imgLink = await getDownloadURL(lastItem);
+      
+    } else {
+      console.log('No se encontraron imágenes en la carpeta.');
+    }
+ 
+}
+
   get getIngredients() {
     return this.recipeForm?.get('ingredientes') as FormArray;
   }
-  
+
   addIngredient(nombre: string = '', cantidad: string = '') {
     const ingredientGroup = this.recipeForm?.get('ingredientes') as FormArray;
     ingredientGroup.push(this.createIngredientGroup(nombre, cantidad));
@@ -110,7 +147,7 @@ export class RecipeFormComponent implements OnInit {
     }
   }
 
- get getStep() {
+  get getStep() {
     return this.recipeForm?.get('steps') as FormArray;
   }
 
@@ -118,8 +155,9 @@ export class RecipeFormComponent implements OnInit {
     const stepNumber = this.getStep.length + 1;
     const stepGroup = this.createStepGroup(stepNumber, stepText);
     this.getStep.push(stepGroup);
+    this.imgUrl() 
   }
-  
+
   updateStepNumbers() {
     const stepControls = this.getStep.controls;
     for (let i = 0; i < stepControls.length; i++) {
@@ -131,6 +169,7 @@ export class RecipeFormComponent implements OnInit {
       number: stepNumber,
       step: [stepText, Validators.required],
     });
+    
   }
   removeLastStep() {
     const stepGroup = this.getStep;
@@ -138,27 +177,64 @@ export class RecipeFormComponent implements OnInit {
       stepGroup.removeAt(stepGroup.length - 1);
     }
   }
+  
+  OnclickImg($event: any) {
+    this.file = $event.target.files[0];
+    this.uploadImage(this.file)  
+  }
+ 
 
-  onSubmit() {
-    console.log(this.recipeForm);
-    
-    if (this.recipeForm?.valid) {
-      const recipeData = this.recipeForm.value;
-      const request = this.recipe
-        ? this.recipeService.editRecipe(this.recipe.id, recipeData)
-        : this.recipeService.createRecipe(recipeData);
-  
-      request.subscribe((recipe: RecipesApiResponse[]) => {
-        this.recipeForm?.reset();
-      });
+  public imgValue =  this.recipeForm?.value.img;
+  uploadImage(file: any) {
+
+
+    if (this.recipeForm?.controls['title'].status === 'VALID') {
+     
+      const imgRef = ref(this.storage, `imagen/${this.recipeForm?.value.title}/${file.name}`);
+      uploadBytes(imgRef, file);
+   
     }
+    else{
+      console.log('El campo "title" debe estar relleno antes de subir la imagen.');
+      const imgInput = document.getElementById('inputImg') as HTMLInputElement;
+      imgInput.value = '';
+    }
+    return;
   }
-  deleteRecipe(recipe: RecipesApiResponse){
-    this.recipeService.deleteRecipe(recipe.id).subscribe(()=>{
-      this.router.navigate(['/tabs'])
-    })
-  }
-  
+
  
   
+
+  onSubmit() {
+   
+    if (this.recipeForm?.valid) {
+      const recipeData = this.recipeForm?.value;
+      
+      
+
+      if (this.recipeId) {
+        this.imgUrl()
+        this.recipeService.editRecipes(this.recipeId, { ...recipeData, img: this.imgLink });
+       
+      } else {
+        this.imgUrl()
+        this.recipeService.addReceipes({ ...recipeData, img: this.imgLink });
+      }
+    }
+    else{
+      console.log('formulario no valido' );
+      console.log(this.recipeForm);
+      
+      
+    }
+  }
+  deleteRecipe(recipeId: string) {
+    const response = this.recipeService.deleteRecipeById(recipeId);
+
+
+    this.router.navigate(['/tabs']);
+  }
+
+
+
 }

@@ -16,7 +16,7 @@ export class MyRecipesPage implements OnInit {
     this.getRecipesList();
   }
   public getRecipesList() {
-    this.apiService.getRecipes().subscribe(recipes => {
+    this.apiService.getRecipe().subscribe(recipes => {
       this.myRecipes = recipes.filter(recipe => recipe.mine === true);
       
     });

@@ -18,7 +18,7 @@ export class RecipesPage implements OnInit {
     this.getRecipesList();
   }
   public getRecipesList() {
-    this.recipesApi.getRecipes().subscribe(recipes => {
+    this.recipesApi.getRecipe().subscribe(recipes => {
       this.ApiRecipes = recipes;
       
     });
